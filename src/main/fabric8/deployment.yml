@@ -1,0 +1,18 @@
+spec:
+  template:
+    spec:
+      containers:
+        - resources:
+            limits:
+              cpu: 1
+              memory: 500Mi
+            requests:
+              cpu: 200m
+              memory: 200Mi
+          volumeMounts:
+            - name: truststore
+              mountPath: /app/truststore
+      volumes:
+        - secret:
+            secretName: enmasse-truststore
+          name: truststore
